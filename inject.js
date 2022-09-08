@@ -5,7 +5,7 @@ const start = () => {
 				if (sessionStorage.getItem('alert') === null) {
 					Swal.fire({
 						title: 'Opgelet !!!',
-						html: '<h5>Deze extentie mag en kan niet gebruikt worden op een officieel examen.</h5></br><h2 style="color: red";><b>Op je examen is dit strafbaar!</b></h2>',
+						html: '<h5>Deze extensie mag en kan niet gebruikt worden op een officieel examen.</h5></br><h2 style="color: red";><b>Op je examen is dit strafbaar!</b></h2>',
 						icon: 'warning',
 					});
 					sessionStorage.setItem('alert', true);
@@ -51,7 +51,6 @@ const clearAll = () => {
 
 const writeAwnser = (awnserText) => {
 	let inputMethod = AwnserValidationMethod(['btnabc', 'btnyesno', 'typ']);
-
 	if (inputMethod == null) return;
 
 	switch (inputMethod) {
@@ -92,8 +91,10 @@ const writeAwnser = (awnserText) => {
 
 const drawAwnser = function () {
 	let awnserButton = document.getElementsByClassName('q-solution');
+
 	if (awnserButton.length === 1 && awnserButton[0].innerHTML !== undefined) {
 		clearAll();
+
 		const awnserText = awnserButton[0].innerHTML;
 		let awnserbody = document.createElement('div');
 		let textBeforeAwnser = document.createElement('span');
@@ -122,6 +123,7 @@ const drawAwnser = function () {
 
 		awnserbody.appendChild(textBeforeAwnser);
 		awnserbody.appendChild(awnserTextSpan);
+
 		document.body.appendChild(awnserbody);
 
 		el = awnserbody;
